@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/79162/Desktop/code/c_practise/Square.c" "C:/Users/79162/Desktop/code/c_practise/cmake-build-debug/CMakeFiles/c_practise.dir/Square.c.obj"
-  "C:/Users/79162/Desktop/code/c_practise/Testing.c" "C:/Users/79162/Desktop/code/c_practise/cmake-build-debug/CMakeFiles/c_practise.dir/Testing.c.obj"
-  "C:/Users/79162/Desktop/code/c_practise/main.c" "C:/Users/79162/Desktop/code/c_practise/cmake-build-debug/CMakeFiles/c_practise.dir/main.c.obj"
+  "C:/Users/79162/Desktop/code/SquareEqSolver/Square.c" "C:/Users/79162/Desktop/code/SquareEqSolver/cmake-build-debug/CMakeFiles/c_practise.dir/Square.c.obj"
+  "C:/Users/79162/Desktop/code/SquareEqSolver/Testing.c" "C:/Users/79162/Desktop/code/SquareEqSolver/cmake-build-debug/CMakeFiles/c_practise.dir/Testing.c.obj"
+  "C:/Users/79162/Desktop/code/SquareEqSolver/main.c" "C:/Users/79162/Desktop/code/SquareEqSolver/cmake-build-debug/CMakeFiles/c_practise.dir/main.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

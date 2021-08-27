@@ -61,10 +61,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.1.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\79162\Desktop\code\c_practise
+CMAKE_SOURCE_DIR = C:\Users\79162\Desktop\code\SquareEqSolver
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\79162\Desktop\code\c_practise\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\79162\Desktop\code\SquareEqSolver\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/c_practise.dir/depend.make
@@ -77,42 +77,42 @@ include CMakeFiles/c_practise.dir/flags.make
 
 CMakeFiles/c_practise.dir/main.c.obj: CMakeFiles/c_practise.dir/flags.make
 CMakeFiles/c_practise.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\79162\Desktop\code\c_practise\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/c_practise.dir/main.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\c_practise.dir\main.c.obj -c C:\Users\79162\Desktop\code\c_practise\main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\79162\Desktop\code\SquareEqSolver\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/c_practise.dir/main.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\c_practise.dir\main.c.obj -c C:\Users\79162\Desktop\code\SquareEqSolver\main.c
 
 CMakeFiles/c_practise.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/c_practise.dir/main.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\79162\Desktop\code\c_practise\main.c > CMakeFiles\c_practise.dir\main.c.i
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\79162\Desktop\code\SquareEqSolver\main.c > CMakeFiles\c_practise.dir\main.c.i
 
 CMakeFiles/c_practise.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/c_practise.dir/main.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\79162\Desktop\code\c_practise\main.c -o CMakeFiles\c_practise.dir\main.c.s
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\79162\Desktop\code\SquareEqSolver\main.c -o CMakeFiles\c_practise.dir\main.c.s
 
 CMakeFiles/c_practise.dir/Testing.c.obj: CMakeFiles/c_practise.dir/flags.make
 CMakeFiles/c_practise.dir/Testing.c.obj: ../Testing.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\79162\Desktop\code\c_practise\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/c_practise.dir/Testing.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\c_practise.dir\Testing.c.obj -c C:\Users\79162\Desktop\code\c_practise\Testing.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\79162\Desktop\code\SquareEqSolver\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/c_practise.dir/Testing.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\c_practise.dir\Testing.c.obj -c C:\Users\79162\Desktop\code\SquareEqSolver\Testing.c
 
 CMakeFiles/c_practise.dir/Testing.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/c_practise.dir/Testing.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\79162\Desktop\code\c_practise\Testing.c > CMakeFiles\c_practise.dir\Testing.c.i
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\79162\Desktop\code\SquareEqSolver\Testing.c > CMakeFiles\c_practise.dir\Testing.c.i
 
 CMakeFiles/c_practise.dir/Testing.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/c_practise.dir/Testing.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\79162\Desktop\code\c_practise\Testing.c -o CMakeFiles\c_practise.dir\Testing.c.s
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\79162\Desktop\code\SquareEqSolver\Testing.c -o CMakeFiles\c_practise.dir\Testing.c.s
 
 CMakeFiles/c_practise.dir/Square.c.obj: CMakeFiles/c_practise.dir/flags.make
 CMakeFiles/c_practise.dir/Square.c.obj: ../Square.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\79162\Desktop\code\c_practise\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/c_practise.dir/Square.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\c_practise.dir\Square.c.obj -c C:\Users\79162\Desktop\code\c_practise\Square.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\79162\Desktop\code\SquareEqSolver\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/c_practise.dir/Square.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\c_practise.dir\Square.c.obj -c C:\Users\79162\Desktop\code\SquareEqSolver\Square.c
 
 CMakeFiles/c_practise.dir/Square.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/c_practise.dir/Square.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\79162\Desktop\code\c_practise\Square.c > CMakeFiles\c_practise.dir\Square.c.i
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\79162\Desktop\code\SquareEqSolver\Square.c > CMakeFiles\c_practise.dir\Square.c.i
 
 CMakeFiles/c_practise.dir/Square.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/c_practise.dir/Square.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\79162\Desktop\code\c_practise\Square.c -o CMakeFiles\c_practise.dir\Square.c.s
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\79162\Desktop\code\SquareEqSolver\Square.c -o CMakeFiles\c_practise.dir\Square.c.s
 
 # Object files for target c_practise
 c_practise_OBJECTS = \
@@ -130,7 +130,7 @@ c_practise.exe: CMakeFiles/c_practise.dir/build.make
 c_practise.exe: CMakeFiles/c_practise.dir/linklibs.rsp
 c_practise.exe: CMakeFiles/c_practise.dir/objects1.rsp
 c_practise.exe: CMakeFiles/c_practise.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\79162\Desktop\code\c_practise\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable c_practise.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\79162\Desktop\code\SquareEqSolver\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable c_practise.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\c_practise.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -143,6 +143,6 @@ CMakeFiles/c_practise.dir/clean:
 .PHONY : CMakeFiles/c_practise.dir/clean
 
 CMakeFiles/c_practise.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\79162\Desktop\code\c_practise C:\Users\79162\Desktop\code\c_practise C:\Users\79162\Desktop\code\c_practise\cmake-build-debug C:\Users\79162\Desktop\code\c_practise\cmake-build-debug C:\Users\79162\Desktop\code\c_practise\cmake-build-debug\CMakeFiles\c_practise.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\79162\Desktop\code\SquareEqSolver C:\Users\79162\Desktop\code\SquareEqSolver C:\Users\79162\Desktop\code\SquareEqSolver\cmake-build-debug C:\Users\79162\Desktop\code\SquareEqSolver\cmake-build-debug C:\Users\79162\Desktop\code\SquareEqSolver\cmake-build-debug\CMakeFiles\c_practise.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/c_practise.dir/depend
 
