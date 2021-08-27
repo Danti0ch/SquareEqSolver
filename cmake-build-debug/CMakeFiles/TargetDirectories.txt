@@ -1,3 +1,0 @@
-C:/Users/79162/Desktop/code/SquareEqSolver/cmake-build-debug/CMakeFiles/c_practise.dir
-C:/Users/79162/Desktop/code/SquareEqSolver/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/79162/Desktop/code/SquareEqSolver/cmake-build-debug/CMakeFiles/rebuild_cache.dir
