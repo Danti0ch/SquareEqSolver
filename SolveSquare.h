@@ -1,12 +1,13 @@
 /**
 * \file
-*   \brief Заголовочный файл, в котором находятся обьявления функций, используемых в файлах Square.c и main.c
+*   \brief Заголовочный файл, в котором находятся константы и обьявления функций, определенных в SolveSquare.c
 *
 */
-#include "math.h"
 
-#ifndef SQR_H
-#define SQR_H
+#ifndef SQUAREEQSOLVER_SOLVESQUARE_H
+#define SQUAREEQSOLVER_SOLVESQUARE_H
+
+#include "math.h"
 
 /// константа, обозначающая минимальное число типа double
 const double EPS = 1e-8;
@@ -17,11 +18,6 @@ enum NumberRoots {
     NO_ROOTS = 0, ///< 0
     ONE_ROOT = 1, ///< 1
     TWO_ROOTS = 2 ///< 2
-};
-
-enum TestStatus {
-    FAILED = 0,
-    PASSED = 1
 };
 
 /**
@@ -57,25 +53,22 @@ enum NumberRoots SolveLinEq(double a, double b, double *x);
 void GetParams(double *a, double *b, double *c);
 
 /**
- * Функция, проводящая юнит-тестирование. Печатает номера успешно пройденных и
- * проваленных тестов. И общее количество успешных тестов
- */
-void Testing(void);
-
-/**
-*   Функция для проверки числа типа double соответствия нулю
- *   \param val1, val2 - числа double, которые надо сравнить
- *
- *   \return 1, если val1 == val2
-*/
-int IsEqual(double val1, double val2);
-
-/**
-*   Функция для вывода результата решения квадратного уравнения. nRoots - количество корней или -1, если корней
- *   бесконечность. x1, x2 - сами корни.
+*   Функция для вывода результата решения квадратного уравнения
  *
  *   \param nRoots количество корней
  *   \param x1, x2 корни
 */
 void PrintResult(enum NumberRoots nRoots, double x1, double x2);
+
+/**
+*   Функция для проверки числа типа double соответствия нулю
+ *   \param val1, val2 - числа double, которые надо сравнить
+ *
+ *   \return 1, если val1 == val2. Иначе 0
+*/
+inline int IsEqual(double val1, double val2) {
+    if(isnan(val1) && isnan(val2))
+        return 1;
+    return fabs(val1 - val2) < EPS;
+}
 #endif

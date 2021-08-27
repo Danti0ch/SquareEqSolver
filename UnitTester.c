@@ -4,7 +4,8 @@
 */
 
 #include "stdio.h"
-#include "main.h"
+#include "UnitTester.h"
+#include "SolveSquare.h"
 #include "assert.h"
 
 /// ограничение на количество тестов
@@ -15,19 +16,6 @@ static const int N_TEST_ARGS = 6;
 
 /// количество аргументов в ответе на тест
 static const int N_ANSWER_ARGS = 3;
-
-/**
- * Функция, получающее решение теста через функции файла Square.c и сравнивающая его с правильным
- * \param ind номер теста
- * \return 1, если тест успешно пройден. 0 в противном случае
- */
-static enum TestStatus Test(int ind);
-/**
- * Функция, считывает условие тестов квадратных уравнений(коэффициенты) и ответы на тесты. Записывает
- * условия в массив tests
- * @return количество считанных тестов
- */
-static int GetTests();
 
 ///индексы элементов теста
 enum TestArgsCode {
@@ -45,10 +33,28 @@ enum AnsArgsCode {
     FIRST_ROOT_ANS_CODE = 1,
     SECOND_ROOT_ANS_CODE = 2
 };
+
+enum TestStatus {
+    FAILED = 0,
+    PASSED = 1
+};
 /// массив для хранения условий тестов вида (par1 par2 par3 nRoots root1 root2)
 double tests[MAX_TESTS][N_TEST_ARGS];
 /// массив для хранения ответов функций SolveSquare.c на тесты. Ответы имеют вид (nRoots root1 root2)
 double answers[MAX_TESTS][N_ANSWER_ARGS];
+
+/**
+ * Функция, получающее решение теста через функции файла Square.c и сравнивающая его с правильным
+ * \param ind номер теста
+ * \return 1, если тест успешно пройден. 0 в противном случае
+ */
+static enum TestStatus Test(int ind);
+/**
+ * Функция, считывает условие тестов квадратных уравнений(коэффициенты) и ответы на тесты. Записывает
+ * условия в массив tests
+ * @return количество считанных тестов
+ */
+static int GetTests();
 
 void Testing(void) {
 
@@ -61,8 +67,9 @@ void Testing(void) {
             passed_tests_counter++;
         } else
             printf("*   test %d failed\n"
-                   "*   Expected: nRoots = %lf | x1 = %lf | x2 = %lf\n"
-                   "*   Found:    nRoots = %lf | x1 = %lf | x2 = %lf\n", i + 1,
+                   "*   Parameters:  a = %lf | b = %lf | c = %lf\n"
+                   "*   Expected:    nRoots = %lf | x1 = %lf | x2 = %lf\n"
+                   "*   Found:       nRoots = %lf | x1 = %lf | x2 = %lf\n", i + 1,
                    tests[i][N_ROOTS_TEST_CODE],
                    tests[i][FIRST_ROOT_TEST_CODE],
                    tests[i][SECOND_ROOT_TEST_CODE],

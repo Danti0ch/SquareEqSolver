@@ -5,7 +5,7 @@
 
 #include "math.h"
 #include "stdio.h"
-#include "main.h"
+#include "SolveSquare.h"
 #include "assert.h"
 
 enum NumberRoots SolveSqrEq(const double a, const double b, const double c,
@@ -23,7 +23,7 @@ enum NumberRoots SolveSqrEq(const double a, const double b, const double c,
         return NO_ROOTS;
 
     if (IsEqual(a, 0)) {
-        int nRoots = SolveLinEq(b, c, x1);
+        enum NumberRoots nRoots = SolveLinEq(b, c, x1);
         (*x2) = (*x1);
         return nRoots;
     }
@@ -71,8 +71,8 @@ void GetParams(double *a, double *b, double *c) {
 }
 
 void PrintResult(enum NumberRoots nRoots, double x1, double x2) {
-    assert(isfinite(x1));
-    assert(isfinite(x2));
+    assert(isfinite(x1) || isnan(x1));
+    assert(isfinite(x2) || isnan(x2));
 
     if (IsEqual(x1, 0))
         x1 = 0.0;
@@ -96,10 +96,4 @@ void PrintResult(enum NumberRoots nRoots, double x1, double x2) {
             printf("ERROR\n");
             break;
     }
-}
-
-int IsEqual(double val1, double val2) {
-    if(isnan(val1) && isnan(val2))
-        return 1;
-    return fabs(val1 - val2) < EPS;
 }
