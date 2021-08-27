@@ -5,10 +5,9 @@
  * Вид режима определяется определением макроca DEBUG
  */
 
-#include "stdio.h"
 #include "main.h"
 
-// ввод через файл, если будет время
+#define DEBUG
 
 int main() {
 #ifdef DEBUG

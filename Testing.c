@@ -5,35 +5,37 @@
 
 #include "stdio.h"
 #include "main.h"
-/// группа тестов. элемент массива equations - массив параметров квадратного уравнения
-static const double equations[][N_INPUT_ELEMENTS] = {{1,        2,        1},
-                                                     {1,        -2,       1},
-                                                     {1e10,     -2e10,    1e10},
-                                                     {0.000001, 0.000123, 0.000012},
-                                                     {0,        0,        0},
-                                                     {0,        0,        100},
-                                                     {0,        -80,      0},
-                                                     {123,      0,        0},
-                                                     {12,       -24,      0},
-                                                     {1,        0,        500},
-                                                     {0,        1e15,     -123e12},
-                                                     {1,        1,        0}};
+#include "assert.h"
 
-/// группа ответов на тесты. элемент массива solutions - массив, первый элемент которого - количество корней, а остальные элементы - сами корни
-static const double solutions[][N_OUTPUT_ELEMENTS] = {{1,  -1,                  -1},
-                                                      {1,  1,                   1},
-                                                      {1,  1,                   1},
-                                                      {2,  -122.90236151810451, -0.09763848189549935},
-                                                      {-1, 0,                   0},
-                                                      {0,  0,                   0},
-                                                      {1,  0,                   0},
-                                                      {1,  0,                   0},
-                                                      {2,  0,                   2},
-                                                      {0,  0,                   0},
-                                                      {1,  0.123,               0.123},
-                                                      {2,  0,                   -1}};
+static const int MAX_TESTS = 500;
+
+/// количество аргументов(входных + выходных переменных) в одном тесте
+static const int N_TEST_ARGS = 6;
+
+/// количество аргументов в ответе на тест
+static const int N_ANSWER_ARGS = 3;
 
 static int Test(int ind);
+
+///индексы элементов теста
+enum TestArgsCode{
+    PAR1_TEST_CODE = 0,
+    PAR2_TEST_CODE = 1,
+    PAR3_TEST_CODE = 2,
+    N_ROOTS_TEST_CODE = 3,
+    FIRST_ROOT_TEST_CODE = 4,
+    SECOND_ROOT_TEST_CODE = 5
+};
+
+/// индексы элементов ответа на тест
+enum AnsArgsCode{
+    N_ROOTS_ANS_CODE = 0,
+    FIRST_ROOT_ANS_CODE = 1,
+    SECOND_ROOT_ANS_CODE = 2
+};
+// группа тестов. элемент массива equations - массив параметров квадратного уравнения
+double tests[MAX_TESTS][N_TEST_ARGS];
+double answers[MAX_TESTS][N_ANSWER_ARGS];
 
 /**
  * Функция, проводящая юнит-тестирование. Печатает номера успешно пройденных и
@@ -41,7 +43,7 @@ static int Test(int ind);
  */
 void Testing(void) {
 
-    int nTests = (int) (sizeof(equations) / sizeof(equations[0]));
+    int nTests = GetTests();
     int passed_tests_counter = 0;
 
     for (int i = 0; i < nTests; i++) {
@@ -49,7 +51,16 @@ void Testing(void) {
             printf("test %d passed\n", i + 1);
             passed_tests_counter++;
         } else
-            printf("test %d failed\n", i + 1);
+            printf("*   test %d failed\n"
+                   "*   Expected: nRoots = %lf | x1 = %lf | x2 = %lf\n"
+                   "*   Found:    nRoots = %lf | x1 = %lf | x2 = %lf\n", i + 1,
+                   tests[i][N_ROOTS_TEST_CODE],
+                   tests[i][FIRST_ROOT_TEST_CODE],
+                   tests[i][SECOND_ROOT_TEST_CODE],
+                   answers[i][N_ROOTS_ANS_CODE],
+                   answers[i][FIRST_ROOT_ANS_CODE],
+                   answers[i][SECOND_ROOT_ANS_CODE]
+                   );
     }
 
     printf("%d / %d passed\n", passed_tests_counter, nTests);
@@ -62,20 +73,50 @@ void Testing(void) {
  */
 static int Test(int ind) {
     double x1 = NAN, x2 = NAN;
-    double a = equations[ind][0], b = equations[ind][1], c = equations[ind][2];
+    double a = tests[ind][PAR1_TEST_CODE], b = tests[ind][PAR2_TEST_CODE], c = tests[ind][PAR3_TEST_CODE];
 
-    int rnRoots = (int) solutions[ind][0];
-    double rx1 = solutions[ind][1];
-    double rx2 = solutions[ind][2];
+    int rnRoots = (int) tests[ind][N_ROOTS_TEST_CODE];
+    double rx1 = tests[ind][FIRST_ROOT_TEST_CODE];
+    double rx2 = tests[ind][SECOND_ROOT_TEST_CODE];
 
-    int nRoots = SolveSqrEq(a, b, c, &x1, &x2);
+    int nRoots = answers[ind][N_ROOTS_ANS_CODE] = SolveSqrEq(a, b, c, &x1, &x2);
+
+    if(IsEqual(x1, rx2) && IsEqual(x2, rx1)){
+        double temple = x1;
+        x1 = x2; x2 = temple;
+    }
+
+    answers[ind][FIRST_ROOT_ANS_CODE] = x1;
+    answers[ind][SECOND_ROOT_ANS_CODE] = x2;
+
+
     if (nRoots == rnRoots && nRoots < 1)
         return PASSED;
 
-    else if (nRoots == rnRoots &&
-             (IsEqual(x1, rx1) && IsEqual(x2, rx2) ||
-              (IsEqual(x1, rx2) && IsEqual(x2, rx1)))) {
+    else if (nRoots == rnRoots && (IsEqual(x1, rx1) && IsEqual(x2, rx2))) {
         return PASSED;
     } else
         return FAILED;
+}
+/**
+ * Функция, проводящая юнит-тестирование. Печатает номера успешно пройденных и
+ * проваленных тестов. И общее количество успешных тестов
+ */
+int GetTests(){
+    FILE *fp = fopen("tests.txt", "r");
+    assert(fp != NULL);
+
+    int nTests = 0;
+    while(fscanf(fp, "%lf %lf %lf %lf %lf %lf",
+                 &tests[nTests][PAR1_TEST_CODE],
+                 &tests[nTests][PAR2_TEST_CODE],
+                 &tests[nTests][PAR3_TEST_CODE],
+                 &tests[nTests][N_ROOTS_TEST_CODE],
+                 &tests[nTests][FIRST_ROOT_TEST_CODE],
+                 &tests[nTests][SECOND_ROOT_TEST_CODE])==6){
+        nTests++;
+    }
+    assert(nTests!=0);
+
+    return nTests;
 }

@@ -4,9 +4,9 @@
 */
 
 #include "math.h"
-#include "assert.h"
 #include "stdio.h"
 #include "main.h"
+#include "assert.h"
 
 /**
 *   Основная функция для решения уравнений вида ax^2 + bx + c = 0,

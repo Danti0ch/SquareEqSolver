@@ -8,11 +8,6 @@
 #ifndef SQR_H
 #define SQR_H
 
-/// количество элементов в входном массиве теста
-#define N_INPUT_ELEMENTS 3
-/// количество элементов в массиве ответов на тест
-#define N_OUTPUT_ELEMENTS 3
-
 /// константа, обозначающая минимальное число типа double
 const double EPS = 1e-8;
 
@@ -41,4 +36,5 @@ int IsEqual(double val1, double val2);
 
 void PrintResult(int nRoots, double x1, double x2);
 
+int GetTests();
 #endif
