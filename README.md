@@ -12,4 +12,5 @@
 
 ### Как запускать
 Режим работы с консольным вводом: g++ main.c UnitTester.c SolveSquare.c -o main
+
 Режим юнит-тестирования: g++ main.c UnitTester.c SolveSquare.c -D DEBUG -o main
