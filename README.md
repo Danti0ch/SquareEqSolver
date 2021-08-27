@@ -10,3 +10,6 @@
 * **UnitTester.c** -	Файл, хранящий тесты, ответы на тесты и функцию юнит тестирования
 * **UnitTester.h** -	Заголовочный файл, в котором находятся объявлениe функции юнит тестирования из UnitTester.c
 
+### Как запускать
+Режим работы с консольным вводом: g++ main.c UnitTester.c SolveSquare.c -o main
+Режим юнит-тестирования: g++ main.c UnitTester.c SolveSquare.c -D DEBUG -o main
