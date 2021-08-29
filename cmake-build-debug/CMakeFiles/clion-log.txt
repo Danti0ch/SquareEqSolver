@@ -1,0 +1,1 @@
+CMakeLists.txt not found in C:\Users\79162\Desktop\code\SquareEqSolver Select CMakeLists.txt

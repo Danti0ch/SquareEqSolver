@@ -1,5 +1,5 @@
 /**
- * \file
+*   \file
 *   \brief Функции, необходимые для вычисления корней квадратного уравнения
 */
 
@@ -9,7 +9,7 @@
 #include "assert.h"
 
 enum NumberRoots SolveSqrEq(const double a, const double b, const double c,
-               double *x1, double *x2) {
+                            double *x1, double *x2) {
     assert(x1 != NULL);
     assert(x2 != NULL);
     assert(x1 != x2);
@@ -25,16 +25,19 @@ enum NumberRoots SolveSqrEq(const double a, const double b, const double c,
     if (IsEqual(a, 0)) {
         enum NumberRoots nRoots = SolveLinEq(b, c, x1);
         (*x2) = (*x1);
+
         return nRoots;
     }
 
     if(IsEqual(D, 0)){
         (*x1) = (*x2) = (-b) / (2 * a);
+
         return ONE_ROOT;
     }
     else {
         (*x1) = (-b + sqrt(D)) / (2 * a);
         (*x2) = (-b - sqrt(D)) / (2 * a);
+
         return TWO_ROOTS;
     }
 }
@@ -65,7 +68,10 @@ void GetParams(double *a, double *b, double *c) {
 
     printf("Enter the parameters values(a b c):");
     while (scanf("%lf %lf %lf", a, b, c) != 3) {
-        while (getchar() != '\n');
+
+        while (getchar() != '\n')
+            ;
+
         printf("Enter parameters in right form(a b c):");
     }
 }
@@ -83,15 +89,19 @@ void PrintResult(enum NumberRoots nRoots, double x1, double x2) {
         case NO_ROOTS:
             printf("No roots\n");
             break;
+
         case ONE_ROOT:
             printf("One root: %g\n", x1);
             break;
+
         case TWO_ROOTS:
             printf("Two roots: %g, %g\n", x1, x2);
             break;
+
         case INF_ROOTS:
             printf("Infinity roots\n");
             break;
+            
         default:
             printf("ERROR\n");
             break;

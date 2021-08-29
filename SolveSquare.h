@@ -15,9 +15,9 @@ const double EPS = 1e-8;
 /// Варианты количества корней
 enum NumberRoots {
     INF_ROOTS = -1, ///< бесконечность
-    NO_ROOTS = 0, ///< 0
-    ONE_ROOT = 1, ///< 1
-    TWO_ROOTS = 2 ///< 2
+    NO_ROOTS  = 0,  ///< 0
+    ONE_ROOT  = 1,  ///< 1
+    TWO_ROOTS = 2   ///< 2
 };
 
 /**
@@ -69,6 +69,8 @@ void PrintResult(enum NumberRoots nRoots, double x1, double x2);
 inline int IsEqual(double val1, double val2) {
     if(isnan(val1) && isnan(val2))
         return 1;
+
     return fabs(val1 - val2) < EPS;
 }
+
 #endif
